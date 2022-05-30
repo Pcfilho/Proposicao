@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/responseLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/keyboardLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvCalculo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="1"
+            android:text="Calculo"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="59sp"
+            app:autoSizeMaxTextSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRespone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="Response"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCalculo" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/keyboardLayout"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:background="@color/keyboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnA"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/number_background"
+            android:text="A"
+            android:textColor="@color/keyboard"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnConjuncao" />
+
+        <Button
+            android:id="@+id/btnB"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/number_background"
+            android:text="B"
+            android:textColor="@color/keyboard"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnC"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnA"
+            app:layout_constraintTop_toBottomOf="@+id/btnDisjuncao" />
+
+        <Button
+            android:id="@+id/btnC"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/number_background"
+            android:text="C"
+            android:textColor="@color/keyboard"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnD"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnB"
+            app:layout_constraintTop_toBottomOf="@+id/btnImplicacao" />
+
+        <Button
+            android:id="@+id/btnD"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/number_background"
+            android:text="D"
+            android:textColor="@color/keyboard"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnC"
+            app:layout_constraintTop_toBottomOf="@+id/btnEquivalencia" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/settings_background"
+            android:text="CE"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConjuncao"
+            app:layout_constraintEnd_toStartOf="@+id/btnResult"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnResult"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/settings_background"
+            android:text="="
+            android:textAlignment="center"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnDisjuncao"
+            app:layout_constraintEnd_toStartOf="@+id/btnParenteseStart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnClear"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnParenteseStart"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/settings_background"
+            android:text="( "
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnImplicacao"
+            app:layout_constraintEnd_toStartOf="@+id/btnParenteseEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnResult"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnParenteseEnd"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/settings_background"
+            android:text=")"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnEquivalencia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnParenteseStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnConjuncao"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/operator_background"
+            android:text="∧"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnA"
+            app:layout_constraintEnd_toStartOf="@+id/btnDisjuncao"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnClear" />
+
+        <Button
+            android:id="@+id/btnDisjuncao"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/operator_background"
+            android:text="∨"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnB"
+            app:layout_constraintEnd_toStartOf="@+id/btnImplicacao"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnConjuncao"
+            app:layout_constraintTop_toBottomOf="@+id/btnResult" />
+
+        <Button
+            android:id="@+id/btnImplicacao"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/operator_background"
+            android:text="→"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnC"
+            app:layout_constraintEnd_toStartOf="@+id/btnEquivalencia"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnDisjuncao"
+            app:layout_constraintTop_toBottomOf="@+id/btnParenteseStart" />
+
+        <Button
+            android:id="@+id/btnEquivalencia"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:backgroundTint="@color/operator_background"
+            android:text="↔"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/btnD"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnImplicacao"
+            app:layout_constraintTop_toBottomOf="@+id/btnParenteseEnd" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
