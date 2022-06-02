@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.tabelaverdade.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -12,6 +13,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var text = ""
     private val lista1 = arrayOf('∧', '∨', '¬', '↔', '→', '(', ')')
     private val lista2 = arrayOf('∧', '∨', '¬', '↔', '→')
+    private val tabelaConjuncao = arrayOf('V', 'F', 'F', 'F')
+    private val tabelaDisjuncao = arrayOf('V', 'V', 'V', 'F')
+    private val tabelaCondicional = arrayOf('V', 'F', 'V', 'V')
+    private val tabelaBicondicional = arrayOf('V', 'F', 'F', 'V')
+    private val tabelaElementoA = arrayOf('V', 'V', 'F', 'F')
+    private val tabelaElementoB = arrayOf('V', 'F', 'V', 'F')
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +38,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             btnParenteseStart.setOnClickListener(this@MainActivity)
             btnParenteseEnd.setOnClickListener(this@MainActivity)
             btnClear.setOnClickListener(this@MainActivity)
-
+            btnTruthTable.setOnClickListener(this@MainActivity)
         }
     }
 
@@ -41,7 +48,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 btnA -> text += 'A'
                 btnB -> text += 'B'
                 btnC -> text += 'C'
-                btnD -> text += 'D'
+                btnD -> text += '¬'
                 btnConjuncao -> text += '∧'
                 btnDisjuncao -> text += '∨'
                 btnImplicacao -> text += '→'
@@ -50,6 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 btnParenteseEnd -> text += ')'
                 btnResult -> response()
                 btnClear -> clearAll()
+                btnTruthTable -> take(text)
                 else -> {}
             }
         }
@@ -73,7 +81,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             binding.tvCalculo.textSize
         }
     }
-
 
     private fun clearAll(){
         text = ""
@@ -137,7 +144,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                 }
                 lista2.contains(last) -> {
-                    if (lista2.contains(char)) {
+                    if (lista2.contains(char) && char != '¬') {
                         return false
                     }
                     if (char == ')'){
@@ -167,5 +174,68 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             return "Operação incorreta"
         }
         return "Operação Correta"
+    }
+
+    private fun take(msg: String) {
+        if (check2(text)) {
+            var response = arrayOf('.')
+            val treat = msg.toCharArray().asList()
+            var operator = '.'
+            var element1 = '.'
+            var element2 = '.'
+            var last = '.'
+
+            treat.forEach {
+                if (it.isLetter() && !element1.isLetter()) {
+                    element1 = it
+                }
+            }
+
+            treat.forEach {
+                if (last == element1) {
+                    operator = it
+                }
+                last = it
+            }
+
+            treat.forEach {
+                if (last == operator) {
+                    element2 = it
+                }
+                last = it
+            }
+
+
+            when(operator) {
+                '∧' -> response = tabelaConjuncao
+                '∨' -> response = tabelaDisjuncao
+                '→' -> response = tabelaCondicional
+                '↔' -> response = tabelaBicondicional
+            }
+
+            println("$element1 e $element2 com $operator = ${response.contentToString()} de $treat")
+            var result = ""
+            var i = 0
+            result += "$element1 | $element2 | $element1$operator$element2 \n"
+            while(i < 4){
+                result += ("${tabelaElementoA[i]} | ${tabelaElementoB[i]} | ${response[i]} \n")
+                i++
+            }
+
+            AlertDialog.Builder(this)
+                .setTitle("Tabela Verdade:")
+                .setMessage(result)
+                .setCancelable(true)
+                .create()
+                .show()
+        } else {
+            AlertDialog.Builder(this)
+                .setTitle("Tabela Verdade:")
+                .setMessage("Operação Incorreta.")
+                .setCancelable(true)
+                .create()
+                .show()
+        }
+
     }
 }

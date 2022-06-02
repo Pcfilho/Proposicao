@@ -48,9 +48,20 @@
             android:textSize="38sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnTruthTable"
             app:layout_constraintTop_toBottomOf="@+id/tvCalculo" />
+
+        <ImageButton
+            android:id="@+id/btnTruthTable"
+            style="@android:style/Widget.Holo.ImageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCalculo"
+            app:srcCompat="@drawable/ic_baseline_table_chart_24"
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,10 +120,10 @@
             android:id="@+id/btnD"
             android:layout_width="77dp"
             android:layout_height="77dp"
-            android:backgroundTint="@color/number_background"
-            android:text="D"
-            android:textColor="@color/keyboard"
+            android:backgroundTint="@color/operator_background"
+            android:text="¬"
             android:textSize="32sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -179,6 +190,7 @@
             android:backgroundTint="@color/operator_background"
             android:text="∧"
             android:textSize="32sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnA"
             app:layout_constraintEnd_toStartOf="@+id/btnDisjuncao"
             app:layout_constraintHorizontal_bias="0.5"
@@ -192,6 +204,7 @@
             android:backgroundTint="@color/operator_background"
             android:text="∨"
             android:textSize="32sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnB"
             app:layout_constraintEnd_toStartOf="@+id/btnImplicacao"
             app:layout_constraintHorizontal_bias="0.5"
@@ -206,6 +219,7 @@
             android:text="→"
             android:textAlignment="center"
             android:textSize="32sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnC"
             app:layout_constraintEnd_toStartOf="@+id/btnEquivalencia"
             app:layout_constraintHorizontal_bias="0.5"
@@ -219,6 +233,7 @@
             android:backgroundTint="@color/operator_background"
             android:text="↔"
             android:textSize="32sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/btnD"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
